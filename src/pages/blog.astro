@@ -1,21 +1,40 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentBlock from "../components/ContentBlock.astro";
+
+const metaTitle = "Blog";
 
 const allPosts = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true }),
+  import.meta.glob("./blog/*.md", { eager: true }),
 );
-const pageTitle = "My Astro Learning Blog";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {
-      allPosts.map((post: any) => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+<BaseLayout metaTitle={metaTitle}>
+  <ContentBlock command="$ ls ~/blog">
+    <h1 class="text-3xl font-bold">Blog</h1>
+
+    <ul class="flex flex-col gap-4">
+      {
+        allPosts.map((post: any) => (
+          <li>
+            <a href={post.url} class="group">
+              <article class="transition-colors ease-linear duration-300 flex border-gray-500/50 border p-6 justify-between group-hover:border-gray-500">
+                <div class="flex flex-col gap-2">
+                  <h2 class="text-xl">{post.frontmatter.title}</h2>
+                  <p class="text-gray-400">{post.frontmatter.description}</p>
+                </div>
+
+                <time
+                  datetime={post.frontmatter.publicationDate}
+                  class="text-gray-400"
+                >
+                  {post.frontmatter.publicationDate}
+                </time>
+              </article>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </ContentBlock>
 </BaseLayout>
