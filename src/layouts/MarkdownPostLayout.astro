@@ -1,13 +1,20 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import ContentBlock from "../components/ContentBlock.astro";
+
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.publicationDate.toString().slice(0, 10)}</p>
-  <p><em>{frontmatter.description}</em></p>
+<BaseLayout metaTitle={frontmatter.title}>
+  <ContentBlock command={`$ cat ..${frontmatter.url}/README.md`}>
+    <article class="prose prose-invert max-w-none">
+      <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
 
-  <article>
-    <slot />
-  </article>
+      <p class="text-gray-400">
+        {frontmatter.publicationDate.toString().slice(0, 10)}
+      </p>
+
+      <slot />
+    </article>
+  </ContentBlock>
 </BaseLayout>
