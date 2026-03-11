@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: "info" | "warning";
+}
+
+const { variant = "info" } = Astro.props;
+
+const styles = {
+  info: {
+    classes: ["bg-slate-800", "border-blue-600"],
+  },
+  warning: {
+    classes: ["bg-stone-900", "border-amber-500"],
+  },
+};
+
+const current = styles[variant];
+---
+
+<aside class:list={["border-l-3 p-6", current.classes]}>
+  <slot />
+</aside>

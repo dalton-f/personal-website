@@ -6,7 +6,7 @@ const metaTitle = "Blog";
 const metaDescription = "The blog page of Dalton's personal website.";
 
 const allPosts = Object.values(
-  import.meta.glob("./blog/*.md", { eager: true }),
+  import.meta.glob("./blog/*.{md,mdx}", { eager: true }),
 );
 ---
 
