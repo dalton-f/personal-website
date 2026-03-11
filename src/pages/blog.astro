@@ -3,13 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentBlock from "../components/ContentBlock.astro";
 
 const metaTitle = "Blog";
+const metaDescription = "The blog page of Dalton's personal website.";
 
 const allPosts = Object.values(
   import.meta.glob("./blog/*.md", { eager: true }),
 );
 ---
 
-<BaseLayout metaTitle={metaTitle}>
+<BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
   <ContentBlock command="$ ls ~/blog">
     <h1 class="text-3xl font-bold text-white">Blog</h1>
 

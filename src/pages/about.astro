@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentBlock from "../components/ContentBlock.astro";
 
 const metaTitle = "About";
+const metaDescription = "The about page of Dalton's personal website.";
 
 const socialLinks = [
   {
@@ -20,7 +21,7 @@ const socialLinks = [
 ];
 ---
 
-<BaseLayout metaTitle={metaTitle}>
+<BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
   <ContentBlock command="$ cat ~/about.md">
     <h1 class="text-3xl font-bold text-white">About</h1>
 

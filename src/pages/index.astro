@@ -3,9 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentBlock from "../components/ContentBlock.astro";
 
 const metaTitle = "Home";
+const metaDescription = "The home of Dalton's personal website.";
 ---
 
-<BaseLayout metaTitle={metaTitle}>
+<BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
   <ContentBlock command="$ whoami">
     <h1 class="text-3xl font-bold text-white">Hi there! I'm Dalton.</h1>
   </ContentBlock>
