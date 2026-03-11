@@ -1,6 +1,39 @@
 ---
+const navigationItems = [
+  {
+    href: "/",
+    text: "{ dalton@portfolio }",
+  },
+  {
+    href: "/about/",
+    text: "./about",
+  },
+  {
+    href: "/projects/",
+    text: "./projects",
+  },
+  {
+    href: "/blog/",
+    text: "./blog",
+  },
+];
 ---
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+<header class="text-gray-400 border-b border-gray-500/50">
+  <nav class="container">
+    <ul class="flex gap-10">
+      {
+        navigationItems.map((navigationItem) => (
+          <li>
+            <a
+              href={navigationItem.href}
+              class="transition-colors duration-300 ease-linear hover:text-white"
+            >
+              {navigationItem.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
