@@ -1,8 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+import ContentBlock from "../components/ContentBlock.astro";
+
+const metaTitle = "Home";
+const pageTitle = "Dalton Figg";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+<BaseLayout metaTitle={metaTitle} pageTitle={pageTitle}>
+  <ContentBlock command="$ cat intro.txt">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
+      aspernatur, consequatur nostrum quaerat commodi vitae similique deserunt
+      repudiandae minima quia?
+    </p>
+  </ContentBlock>
 </BaseLayout>
