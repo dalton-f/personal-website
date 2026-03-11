@@ -19,7 +19,7 @@ const allPosts = Object.values(
         allPosts.map((post: any) => (
           <li>
             <a href={post.url} class="group">
-              <article class="transition-colors ease-linear duration-300 flex border-gray-500/50 border p-6 justify-between group-hover:border-gray-500">
+              <article class="flex flex-col border-gray-500/50 border p-6 gap-4 justify-between transition-colors ease-linear duration-300 group-hover:border-gray-500 md:flex-row">
                 <div class="flex flex-col gap-2">
                   <h2 class="text-xl text-white">{post.frontmatter.title}</h2>
                   <p class="text-gray-400">{post.frontmatter.description}</p>

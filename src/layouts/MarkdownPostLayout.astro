@@ -7,9 +7,11 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout metaTitle={frontmatter.title}>
   <ContentBlock command={`$ cat ..${frontmatter.url}/README.md`}>
-    <article class="prose prose-lg prose-h1:m-0 prose-invert max-w-none">
-      <div class="flex items-center justify-between">
-        <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+    <article
+      class="prose prose-h1:text-3xl prose-h1:m-0 prose-invert max-w-none md:prose-lg"
+    >
+      <div class="flex flex-col justify-between md:flex-row md:items-center">
+        <h1 class="font-bold">{frontmatter.title}</h1>
 
         <p class="text-gray-400">
           {frontmatter.publicationDate.toString().slice(0, 10)}
