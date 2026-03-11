@@ -8,6 +8,12 @@ const metaDescription = "The blog page of Dalton's personal website.";
 const allPosts = Object.values(
   import.meta.glob("./blog/*.{md,mdx}", { eager: true }),
 );
+
+const sortedPosts = allPosts.sort(
+  (a, b) =>
+    Date.parse(b.frontmatter.publicationDate) -
+    Date.parse(a.frontmatter.publicationDate),
+);
 ---
 
 <BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
@@ -16,7 +22,7 @@ const allPosts = Object.values(
 
     <ul class="flex flex-col gap-4">
       {
-        allPosts.map((post: any) => (
+        sortedPosts.map((post: any) => (
           <li>
             <a href={post.url} class="group">
               <article class="flex flex-col border-gray-500/50 border p-6 gap-4 justify-between transition-colors ease-linear duration-300 group-hover:border-gray-500 md:flex-row">
