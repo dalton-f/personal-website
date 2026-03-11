@@ -4,15 +4,19 @@ import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 
-const { metaTitle } = Astro.props;
+const { metaTitle, metaDescription } = Astro.props;
 ---
 
-<html lang="en" class="antialiased font-jetbrains bg-neutral-900 text-gray-300">
+<html
+  lang="en"
+  class="antialiased font-jetbrains bg-neutral-900 text-gray-300 scroll-smooth"
+>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={metaDescription} />
 
     <title>{metaTitle}</title>
   </head>

@@ -5,8 +5,81 @@ publicationDate: "11-03-2026"
 description: "The uncomfortable but rewarding practice of sharing what you don't know yet."
 ---
 
-Welcome to my blog!
+Over the past few days, I've been working on a brand-new project: this blog. Today, I deployed it for the first time.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+In recent months, I’ve become increasingly drawn to the idea of having a space to share my thoughts on technology and the projects I’m working on. Creating a blog felt like a no-brainer, even though it’s something I hadn’t tackled before.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+From a design perspective, it has an admittedly simple look. Most of the interesting details are hidden under the hood. In this first blog post, I want to share what the stack looks like and dig into some of those details.
+
+## The core stack
+
+Let’s start with a quick list of the major technologies used by my blog:
+
+- Astro
+- Tailwind
+- TypeScript
+
+This list might look like the standard setup for creating a blog - and it is. Choosing lightweight tools allows me to focus on the part I enjoy most: writing these posts!
+
+I had been interested in trying out the static site generator Hugo for some time, but then I discovered Astro.
+
+## Content management
+
+For me, being able to write blog posts in **Markdown** is the most important part of my tech stack. I experimented with other approaches early on, but the experience quickly became frustrating - having to wrap every paragraph in a `<p>` tag, for example, gets old fast.
+
+Astro fits perfectly with my workflow; I can edit Markdown files directly in VS Code, manage content without extra wrappers or convoluted syntax, and set post metadata (like the title and publish date) right in the frontmatter at the top of each file. I can keep my focus on writing, while having the benefit of a predictable build process.
+
+Not only that, my previous experience with Twig templates and components maps almost directly to Astro’s layout system. This familiarity makes it easy to structure pages and reuse components intuitively.
+
+For all these reasons, Astro felt like the natural choice over Hugo.
+
+## CSS
+
+One of the things that initially drew me to Astro was the local scoping of `<style>` tags in components. The idea of styles being isolated to a component felt neat and manageable, preventing unintended global overrides and keeping my CSS predictable.
+
+In practice, though, I opted to use **Tailwind** instead. My experience with Tailwind’s utility-first approach makes it incredibly fast for me to style components without writing custom CSS for every element. It meshes well with Astro’s component model, letting me combine the benefits of scoped styles with the efficiency and consistency of a utility-based workflow.
+
+## Code Snippets
+
+I also wanted this site to serve as a place to showcase a portfolio of projects I’ve worked on. This means that being able to easily share syntax-highlighted code snippets is a must.
+
+Thankfully, Astro makes this simple. Its Markdown code blocks are styled by **Shiki** by default, using the `github-dark` theme, so my snippets look great out of the box without having to worry about any extra configuration:
+
+```ts
+// Example: simple function to greet a user
+function greet(name: string) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet("Astro");
+```
+
+## Accessibility and Performance
+
+Needless to say, one of the most important aspects of any website development is **accessibility**. I've learnt a lot about accessibility over the years, and it's something I am very passionate about when it comes to making my own sites. But what about when you’re working with modern tools like Astro? How does it help — or maybe challenge — developers striving for accessibility?
+
+Thankfully, Astro already encourages the use of static, semantic HTML first - this makes it much easier to apply proper headings and ARIA attributes because we have direct control over the content. The result? Screen readers and other assistive technologies can parse your content more reliably.
+
+Astro also supports partial hydration, letting you add interactive components from a range of frameworks without overwhelming the page with JavaScript. This means faster loading for everyone, including those users relying on assistive tech.
+
+Auditing your site throughout development is essential - Astro's built in toolbar comes with an auditing tool that helps you quickly identify accessibility issues. Combined with Chrome’s Lighthouse tool, you can catch missing alt attributes, focus-order issues, color contrast problems, and more. With these tools, there’s no excuse to miss accessibility improvements.
+
+## Hosting
+
+Once the blog was ready to go live, I had to decide where to host it. Because Astro generates static HTML, the site can be hosted almost anywhere that serves files with no complex backend required.
+
+I decided to explore two popular, developer-friendly _and free_ options: Netlify and Vercel.
+
+Netlify offers a very smooth git-based workflow with its automatic builds and deploys, and has a generous free tier with a great dashboard to manage the sites you host.
+
+Vercel is known for its speed and simplicity. Its focus on performance and minimal configuration makes it ideal for static sites like this blog.
+
+I believe either of these options are perfect for a project like this, and work seemlessly with Astro, so choosing between them comes down to personal preference.
+
+## Final Thoughts
+
+Building this blog has been a rewarding exercise in both learning and doing. At the end of the day, the tools we choose are only part of the story. What matters most is how they compliment your workflow and how they help you express your ideas.
+
+This process has reminded me that sharing what you don’t know yet is uncomfortable, but rewarding. Publishing your ideas, even when they feel unfinished, forces you to clarify your thinking, discover gaps in your knowledge, and grow as a creator.
+
+This first post is just the beginning. My hope is that this space becomes a place not only to share what I know, but also to explore what I’m still learning and maybe inspire others to embrace that same uncomfortable, rewarding practice.
