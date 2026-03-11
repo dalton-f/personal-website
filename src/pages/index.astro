@@ -3,15 +3,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentBlock from "../components/ContentBlock.astro";
 
 const metaTitle = "Home";
-const pageTitle = "Dalton Figg";
 ---
 
-<BaseLayout metaTitle={metaTitle} pageTitle={pageTitle}>
+<BaseLayout metaTitle={metaTitle}>
+  <ContentBlock command="$ whoami">
+    <h1 class="text-3xl font-bold">Hi there! I'm Dalton.</h1>
+  </ContentBlock>
+
   <ContentBlock command="$ cat intro.txt">
+    <p>Developer. Builder. Thinker.</p>
+
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
-      aspernatur, consequatur nostrum quaerat commodi vitae similique deserunt
-      repudiandae minima quia?
+      Welcome to my corner of the internet - a place for my projects, thoughts,
+      and things I'm working on.
     </p>
   </ContentBlock>
 </BaseLayout>

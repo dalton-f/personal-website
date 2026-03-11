@@ -1,11 +1,70 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "About Page";
+import ContentBlock from "../components/ContentBlock.astro";
+
+const metaTitle = "About";
+
+const socialLinks = [
+  {
+    href: "https://github.com/dalton-f",
+    text: "github",
+  },
+  {
+    href: "https://www.linkedin.com/in/dalton-figg-290564389/",
+    text: "linkedin",
+  },
+  {
+    href: "https://dalton-f.itch.io/",
+    text: "itchio",
+  },
+];
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde quidem
-    nostrum alias libero deleniti odio aut voluptas illo sed doloremque?
-  </p>
+<BaseLayout metaTitle={metaTitle}>
+  <ContentBlock command="$ cat ~/about.md">
+    <h1 class="text-3xl font-bold">About</h1>
+
+    <p>
+      Hey, I'm Dalton. I started building for the web in 2015 and haven't looked
+      back since.
+    </p>
+
+    <p>
+      Upon leaving college, I worked as an apprentice front-end web developer at
+      a top-rated local marketing agency.
+    </p>
+
+    <p>
+      In this time, I worked on a variety of projects, gradually building my
+      skills and becoming proficient with technologies such as HTML, JavaScript,
+      Tailwind, and Twig, while focusing on accessibility and responsive design.
+    </p>
+
+    <p>
+      Outside of coding, I have experience using Git for version control, along
+      with familiarity with design tools like Adobe XD and CMS platforms such as
+      Craft.
+    </p>
+
+    <p>
+      These days, I'm a solo indie developer building projects I enjoy and
+      exploring areas like web and game development. I'm always looking to
+      return to the industry professionally and contribute to exciting new
+      projects.
+    </p>
+  </ContentBlock>
+
+  <ContentBlock command="$ cat links.txt">
+    <ul class="flex flex-col gap-2">
+      {
+        socialLinks.map((socialLink) => (
+          <li>
+            <a href={socialLink.href} target="_blank" rel="noopener noreferrer">
+              &rarr; {socialLink.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </ContentBlock>
 </BaseLayout>
