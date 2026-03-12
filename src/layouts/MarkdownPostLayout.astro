@@ -5,7 +5,10 @@ import ContentBlock from "../components/ContentBlock.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout metaTitle={frontmatter.title}>
+<BaseLayout
+  metaTitle={frontmatter.title}
+  metaDescription={frontmatter.description}
+>
   <ContentBlock command={`$ cat ..${frontmatter.url}/README.md`}>
     <article
       class="prose prose-h1:text-3xl prose-h1:m-0 prose-invert max-w-none md:prose-lg"
