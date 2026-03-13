@@ -3,7 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentBlock from "../components/ContentBlock.astro";
 
 const metaTitle = "Projects";
-const metaDescription = "The projects page of Dalton's personal website.";
+const metaDescription =
+  "Explore Dalton's projects showcasing practical work, experiments, and creative builds across technology and development.";
 
 const allProjects = Object.values(
   import.meta.glob("./projects/*.{md,mdx}", { eager: true }),
