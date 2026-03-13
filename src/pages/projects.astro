@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentBlock from "../components/ContentBlock.astro";
+
+const metaTitle = "Projects";
+const metaDescription = "The projects page of Dalton's personal website.";
+
+const allProjects = Object.values(
+  import.meta.glob("./projects/*.{md,mdx}", { eager: true }),
+);
+
+const sortedProjects = allProjects.sort(
+  (a, b) =>
+    Date.parse(b.frontmatter.publicationDate) -
+    Date.parse(a.frontmatter.publicationDate),
+);
+---
+
+<BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
+  <ContentBlock command="$ ls ~/projects">
+    <h1 class="text-3xl font-bold text-white">Projects</h1>
+
+    <ul class="flex flex-col gap-4">
+      {
+        sortedProjects.map((post: any) => (
+          <li>
+            <a href={post.url} class="group">
+              <article class="flex flex-col border-gray-500/50 border p-6 gap-4 justify-between transition-colors ease-linear duration-300 group-hover:border-gray-500 md:flex-row">
+                <div class="flex flex-col gap-2">
+                  <h2 class="text-xl text-white">{post.frontmatter.title}</h2>
+                  <p class="text-gray-400">{post.frontmatter.description}</p>
+                </div>
+
+                <time
+                  datetime={post.frontmatter.publicationDate}
+                  class="text-gray-400"
+                >
+                  {post.frontmatter.publicationDate}
+                </time>
+              </article>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </ContentBlock>
+</BaseLayout>
