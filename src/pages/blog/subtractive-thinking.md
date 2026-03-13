@@ -107,8 +107,8 @@ Huge thanks to Jeremy for his original research and detailed explanation of impl
 
 Rock Paper Shotgun's article about How Donut County's hole works: https://www.rockpapershotgun.com/how-donut-countys-hole-works
 
-Games mentioned in this blog:
+Get in the Hole: https://store.steampowered.com/app/4174950/Get_in_the_Hole/
 
-- Get in the Hole: https://store.steampowered.com/app/4174950/Get_in_the_Hole/ | https://discord.gg/gXYkQBqsvQ
-- Project P.I.T.T: https://store.steampowered.com/app/4026250/Project_PITT/ | https://discord.gg/pxjc72PZKc
-- Donut County: https://store.steampowered.com/app/702670/Donut_County/
+Project P.I.T.T: https://store.steampowered.com/app/4026250/Project_PITT/
+
+Donut County: https://store.steampowered.com/app/702670/Donut_County/
