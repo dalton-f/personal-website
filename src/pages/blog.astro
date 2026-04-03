@@ -11,7 +11,7 @@ const allPosts = Object.values(
 );
 
 const sortedPosts = allPosts.sort(
-  (a, b) =>
+  (a: any, b: any) =>
     Date.parse(b.frontmatter.publicationDate) -
     Date.parse(a.frontmatter.publicationDate),
 );

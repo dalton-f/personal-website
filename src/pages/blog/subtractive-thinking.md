@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Subtractive Thinking"
-publicationDate: "12-03-2026"
+publicationDate: "2026-03-12"
 description: "The complexities behind performantly subtracting geometry"
 ---
 
