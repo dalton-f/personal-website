@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "KayKit Import Helper"
-publicationDate: "2026-05-07"
+publicationDate: "2026-04-23"
 description: "A lightweight Godot plugin designed to streamline workflows with KayKit asset packs"
 ---
 

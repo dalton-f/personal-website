@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "AI Blocker"
-publicationDate: "2026-05-07"
+publicationDate: "2025-07-30"
 description: "A browser extension that blocks users from accessing LLMs in various ways"
 ---
 
