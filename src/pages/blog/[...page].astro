@@ -1,29 +1,47 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import ContentBlock from "../components/ContentBlock.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentBlock from "../../components/ContentBlock.astro";
 
 const metaTitle = "Blog";
 const metaDescription =
   "Read Dalton's blog for insights on technology, development, ideas, lessons learned, and personal experiences.";
 
-const allPosts = Object.values(
-  import.meta.glob("./blog/*.{md,mdx}", { eager: true }),
-);
+export async function getStaticPaths({ paginate }) {
+  const allPosts = Object.values(
+    import.meta.glob("./*.{md,mdx}", { eager: true }),
+  );
 
-const sortedPosts = allPosts.sort(
-  (a: any, b: any) =>
-    Date.parse(b.frontmatter.publicationDate) -
-    Date.parse(a.frontmatter.publicationDate),
-);
+  const sortedPosts = allPosts.sort(
+    (a, b) =>
+      Date.parse(b.frontmatter.publicationDate) -
+      Date.parse(a.frontmatter.publicationDate),
+  );
+
+  return paginate(sortedPosts, {
+    pageSize: 4,
+  });
+}
+
+const { page } = Astro.props;
 ---
 
 <BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
   <ContentBlock command="$ ls ~/blog">
     <h1 class="text-3xl font-bold text-white">Blog</h1>
 
+    <div class="flex gap-4">
+      {page.url.prev ? <a href={page.url.prev}>← Previous</a> : null}
+
+      <p>
+        Page {page.currentPage} of {page.lastPage}
+      </p>
+
+      {page.url.next ? <a href={page.url.next}>Next →</a> : null}
+    </div>
+
     <ul class="flex flex-col gap-4">
       {
-        sortedPosts.map((post: any) => (
+        page.data.map((post: any) => (
           <li>
             <a href={post.url} class="group">
               <article class="flex flex-col border-gray-500/50 border p-6 gap-4 justify-between transition-colors ease-linear duration-300 group-hover:border-gray-500 md:flex-row">
