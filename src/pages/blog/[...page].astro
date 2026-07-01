@@ -8,7 +8,7 @@ const metaDescription =
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = Object.values(
-    import.meta.glob("./*.{md,mdx}", { eager: true }),
+    import.meta.glob("./**/*.{md,mdx}", { eager: true }),
   );
 
   const sortedPosts = allPosts.sort(

@@ -71,7 +71,7 @@ Potential areas for future development include:
 
 ## Links
 
-- [KayKit Import Helper Repository](https://github.com/dalton-f/kaykit-import-helper?utm_source=chatgpt.com)
-- [KayKit Asset Pack](https://kaylousberg.itch.io/?utm_source=chatgpt.com)
+- [KayKit Import Helper Repository](https://github.com/dalton-f/kaykit-import-helper)
+- [KayKit Asset Pack](https://kaylousberg.itch.io/)
 - [Advanced Model Import by Syvies](https://github.com/Syvies/godot-plugin-advanced-model-import)
 - [Bulk Model Manager by Dragon1Freak](https://github.com/dragon1freak/godot-bulk-model-manager)
